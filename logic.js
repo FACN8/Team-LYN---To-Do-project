@@ -70,10 +70,8 @@ var todoFunctions = {
     // hint: array.slice, array.sort
     var newArr = this.cloneArrayOfObjects(todos);
     
-    newArr.sort(function (a,b) {
-      return a.id - b.id;
-    })
-    return newArr
+    newArr.sort(sortFunction);
+    return newArr;
   },
 };
 
