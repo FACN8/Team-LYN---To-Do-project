@@ -18,7 +18,7 @@ const submitForm =
   var createTodoNode = function(todo) {
     var todoNode = document.createElement('li');
     // you will need to use addEventListener
-
+    
     // add span holding description
     var spanNode = document.createElement('span');
     var textNode = document.createTextNode(todo.description);
