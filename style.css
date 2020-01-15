@@ -1,4 +1,3 @@
-
 body {
     padding: 0;
     margin: 0;
@@ -37,7 +36,6 @@ body {
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-
 }
 
 .add-todo {
@@ -57,7 +55,7 @@ body {
 .clear {
     width: 30px;
     height: 30px;
-    margin:6px;
+    margin: 6px;
 }
 
 .clear i.fa-sync {
@@ -113,7 +111,7 @@ body {
     /* position: absolute; */
     font-size: 40px;
     color: #4162f6;
-     margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .add-todo input {
@@ -124,7 +122,7 @@ body {
     border: none;
     font-size: 20px;
     padding-left: 10px;
-    font-family:'Shadows Into Light Two', cursive, sans-serif;
+    font-family: 'Shadows Into Light Two', cursive, sans-serif;
     font-weight: bold;
 }
 
@@ -143,9 +141,8 @@ body {
     font-size: 25px;
     padding-left: 5px;
     color: rgba(0, 0, 0, 0.746);
-    margin-right:10px;
+    margin-right: 10px;
     margin-top: 8px;
-   
 }
 
 .item i.fa-trash:hover {
@@ -170,10 +167,8 @@ body {
     padding-right: 40px;
     left: 80px;
     padding-top: 50px;
-
 }
 
 .description {
     margin-left: 20px;
 }
-
