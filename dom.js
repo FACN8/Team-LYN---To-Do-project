@@ -36,7 +36,7 @@ const submitForm =
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
       });
-      todoNode.appendChild(deleteButtonNode);
+       todoNode.appendChild(deleteButtonNode);
 
       
       // add markTodo button
