@@ -1,0 +1,16 @@
+.actionButton {
+    margin: 3px;
+    height: 50px;
+    width: 75px;
+}
+
+.description {
+    margin: 3px;
+    height: 50px;
+    width: 75px; 
+    font-size: 30px;
+}
+
+#todo-container {
+    display: block;
+}

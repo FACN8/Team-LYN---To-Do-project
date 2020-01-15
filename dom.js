@@ -1,14 +1,16 @@
 // part 2 linking it all together
 // The function here is called an iife,
 // it keeps everything inside hidden from the rest of our application
+
+const submitForm = 
 (function() {
   // This is the dom node where we will keep our todo
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
 
   var state = [
-    { id: -3, description: 'first todo' },
-    { id: -2, description: 'second todo' },
+    { id: -3, description: 'Hello! plan your day today!' },
+    { id: -2, description: 'To create a new todo use the form bellow' },
     { id: -1, description: 'third todo' },
   ]; // this is our initial todoList
 
@@ -20,10 +22,11 @@
     // add span holding description
     var spanNode = document.createElement('span');
     var textNode = document.createTextNode(todo.description);
-    spanNode.appendChild(textNode)
-    todoNode.appendChild(spanNode)
+    spanNode.appendChild(textNode);
+    todoNode.appendChild(spanNode);
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
+    deleteButtonNode.textContent='X';
     deleteButtonNode.addEventListener('click', function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
@@ -31,9 +34,17 @@
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
-
+    var markButtonNode = document.createElement('button');
+    markButtonNode.textContent='Mark'
+    markButtonNode.addEventListener('click', function(event) {
+      var newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+    });
+    todoNode.appendChild(markButtonNode);
     // add classes for css
-
+    markButtonNode.className+= " actionButton";
+    deleteButtonNode.className+= " actionButton"
+    spanNode.className+= " description"
     return todoNode;
   };
 
@@ -43,11 +54,14 @@
       // https://developer.mozilla.org/en-US/docs/Web/Events/submit
       // what does event.preventDefault do?
       // what is inside event.target?
-
-      var description = '?'; // event.target ....
-
+      event.preventDefault();
+      var description = event.target.description.value; // event.target ....
+      console.log(description);
+      var newTodo = todoFunctions.makeNewTodo(undefined,description,undefined)
       // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
+      createTodoNode(newTodo);
+      var newState = todoFunctions.addTodo(state,newTodo); // ?? change this!
+      
       update(newState);
     });
   }
@@ -72,3 +86,7 @@
 
   if (container) renderState(state);
 })();
+
+if (typeof module !== 'undefined') {
+  module.exports = submitForm;
+}
