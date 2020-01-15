@@ -4,6 +4,7 @@ body {
     margin: 0;
     background-color: white;
     font-family: 'Shadows Into Light Two', cursive, sans-serif;
+    font-weight: bold;
     background-image: url(images/background.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -22,6 +23,21 @@ body {
     background-size: 100% 200%;
     background-image: url(images/header.jpg);
     border-style: solid;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.header i {
+    width: 60px;
+    height: 60px;
+    margin-left: 60px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
 }
 
 .add-todo {
@@ -29,11 +45,19 @@ body {
     height: 100%;
 }
 
+.add-todo #submitBtn {
+    font-size: 15px;
+    padding: 5px;
+    margin-left: 280px;
+    margin-bottom: 40px;
+    width: 80px;
+    margin-bottom: 50px;
+}
+
 .clear {
     width: 30px;
     height: 30px;
-    /* position: absolute; */
-    top: 35px;
+    margin:6px;
 }
 
 .clear i.fa-sync {
@@ -50,10 +74,9 @@ body {
 
 .content {
     width: 380px;
-    height: 350px;
-    max-height: 300px;
     position: center;
     /* border-style: solid; */
+    left: 10px;
 }
 
 .content ul {
@@ -81,36 +104,28 @@ body {
     border-top: 1px solid black;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     border-style: solid;
 }
 
 .add-todo i {
-    position: absolute;
+    /* position: absolute; */
     font-size: 40px;
     color: #4162f6;
-}
-
-.add-todo i.fa-plus-circle {
-    /* position: absolute; */
-    font-size: 35px;
-    padding-left: 2px;
-    left: 330px;
-    top: 12px;
-}
-
-.add-todo i.fa-plus-circle:hover {
-    cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .add-todo input {
-    /* position: absolute; */
     left: 20px;
-    height: 35px;
+    height: 25px;
     width: 300px;
     background-color: transparent;
     border: none;
     font-size: 20px;
     padding-left: 10px;
+    font-family:'Shadows Into Light Two', cursive, sans-serif;
+    font-weight: bold;
 }
 
 .item p.text {
@@ -125,12 +140,12 @@ body {
 }
 
 .item i.fa-trash {
-    /* position: absolute; */
     font-size: 25px;
     padding-left: 5px;
-    left: 350px;
-    top: 55px;
     color: rgba(0, 0, 0, 0.746);
+    margin-right:10px;
+    margin-top: 8px;
+   
 }
 
 .item i.fa-trash:hover {
@@ -157,3 +172,8 @@ body {
     padding-top: 50px;
 
 }
+
+.description {
+    margin-left: 20px;
+}
+

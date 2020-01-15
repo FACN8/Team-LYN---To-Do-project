@@ -12,23 +12,17 @@
 <body>
     <div class="todo-container">
         <div class="header">
-            <div class="clear">
-                <i class="fas fa-sync"></i>
-            </div>
-            <div class="content">
-                <!-- <ul id="list">
-                    <li class="item">
-                        <i class="fas fa-trash" aria-hidden="true"></i>
-                        <p class="text">Coffee</p>
-                        <i class="far fa-circle" aria-hidden="true"></i>
-                    </li>
-                </ul> -->
-            </div>
-            <div class="add-todo">
-                <i class="fas fa-plus-circle"></i>
-                <input type="text" name="description" value="" placeholder="Add a to do">
-            </div>
+                <i class="fas fa-sync" id="removeDone"></i>         
         </div>
+        <div class="content">        
+        </div>
+            <form class="add-todo"> 
+                <input type="text" name="description" value="" placeholder="Add a to do">
+                <input type="submit" name="" id='submitBtn' value="Submit">
+                <!-- <i class="fas fa-plus-circle"></i> -->
+            </form>
+        </div>
+        
 </body>
 <script type="text/javascript" src="./logic.js"></script>
 <script type="text/javascript" src="./dom.js"></script>
