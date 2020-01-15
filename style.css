@@ -1,13 +1,18 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: white;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
     font-family: 'Shadows Into Light Two', cursive, sans-serif;
     font-weight: bold;
     background-image: url(images/background.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-size: fixed;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .todo-container {
@@ -17,6 +22,7 @@ body {
 }
 
 .header {
+    min-height: 45px;
     width: 380px;
     height: 45px;
     background-size: 100% 200%;
@@ -44,29 +50,32 @@ body {
 }
 
 .add-todo #submitBtn {
-    font-size: 15px;
-    padding: 5px;
+    font-size: 20px;
+    /* padding: 10px;*/
     margin-left: 280px;
-    margin-bottom: 40px;
-    width: 80px;
-    margin-bottom: 50px;
+    width: 90px;
+    position: absolute;
 }
 
-.clear {
-    width: 30px;
-    height: 30px;
-    margin: 6px;
+.add-todo #submitBtn:hover {
+    cursor: pointer;
+    text-shadow: 1px 3px 5px red;
+    transform: rotate(20deg);
 }
 
-.clear i.fa-sync {
+.header i {
     font-size: 25px;
+    margin-top: 10px;
+}
+
+.header i.fa-sync {
     bottom: 25px;
     color: black;
 }
 
-.clear i:hover {
+.header i:hover {
     cursor: pointer;
-    text-shadow: 1px 3px 5px red;
+    text-shadow: 1px 3px 5px yellowgreen;
     transform: rotate(45deg);
 }
 
@@ -147,6 +156,8 @@ body {
 
 .item i.fa-trash:hover {
     cursor: pointer;
+    text-shadow: 1px 3px 5px black;
+    transform: rotate(50deg);
 }
 
 .item i.fa-circle {
@@ -159,6 +170,8 @@ body {
 
 .item i.fa-circle:hover {
     cursor: pointer;
+    text-shadow: 1px 3px 5px red;
+    transform: rotate(50deg);
 }
 
 .item p.text {
