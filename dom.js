@@ -11,19 +11,38 @@ const submitForm =
     var removeDone = document.getElementById('removeDone')
 
     var state = [
-      { id: -3, description: 'Hello! plan your day today!', 
-        done: false},
-      { id: -2, description: 'To create a new todo use the form bellow',
-        done: true },
-      { id: -1, description: 'third todo', 
-        done: true},
+
+      {
+        id: -4, description: '"Refresh" button removes all done tasks',
+        done: false
+      },
+      {
+        id: -3, description: '"checkmark" button sorts by done',
+        done: false
+      },
+      {
+        id: -5, description: '"AZ" button sorts Alphabetically',
+        done: false
+      },
+      {
+        id: -2, description: 'To create a new todo use the form bellow',
+        done: false
+      },
+      {
+        id: -1, description: 'Be Awesome!',
+        done: true
+      },
+      {
+        id: -0, description: 'Love this To-Do list!!',
+        done: true
+      },
     ]; // this is our initial todoList
 
     // This function takes a todo, it returns the DOM node representing that todo
     var createTodoNode = function (todo) {
       var todoNode = document.createElement('li');
       // you will need to use addEventListener
-      todoNode.className+=' item';
+      todoNode.className += ' item';
 
 
 
@@ -36,18 +55,18 @@ const submitForm =
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
       });
-       todoNode.appendChild(deleteButtonNode);
+      todoNode.appendChild(deleteButtonNode);
 
-      
+
       // add markTodo button
       var markButtonNode = document.createElement('i');
-      markButtonNode.className +=' far fa-circle';
-      if(todo.done){
+      markButtonNode.className += ' far fa-circle';
+      if (todo.done) {
         todoNode.style.textDecoration = "line-through"
       }
-      markButtonNode.addEventListener('click', function (event) {        
+      markButtonNode.addEventListener('click', function (event) {
         var newState = todoFunctions.markTodo(state, todo.id);
-        update(newState);       
+        update(newState);
       });
       todoNode.appendChild(markButtonNode);
       // add span holding description
@@ -67,8 +86,8 @@ const submitForm =
 
 
       // add classes for css
-      spanNode.className+=' description';
-      
+      spanNode.className += ' description';
+
       return todoNode;
     };
 
@@ -83,8 +102,8 @@ const submitForm =
         var newTodo = todoFunctions.makeNewTodo(undefined, description, undefined)
         // hint: todoFunctions.addTodo
         createTodoNode(newTodo);
-        var newState = todoFunctions.addTodo(state, newTodo); 
-
+        var newState = todoFunctions.addTodo(state, newTodo);
+        addTodoForm.reset();
         update(newState);
       });
     }
@@ -93,18 +112,18 @@ const submitForm =
     var sortByDoneButton = document.createElement('i');
     sortByDoneButton.className += ' fas fa-check-square'
     sortByDoneButton.addEventListener('click', function (event) {
-      var newState = todoFunctions.sortTodos(state, (a, b) =>  a.done ? 5 : -5)
+      var newState = todoFunctions.sortTodos(state, (a, b) => !a.done ? (!b.done ? 0 : -1) : (b.done ? 0 : 1))
       update(newState);
     });
     header.appendChild(sortByDoneButton);
 
     //Remove done by clicking reset button
-    removeDone.addEventListener('click', function(event){
-      var newState = state.filter(e=> !e.done)
+    removeDone.addEventListener('click', function (event) {
+      var newState = state.filter(e => !e.done)
       update(newState);
     });
-    
-    //add a line through the sentence
+
+
 
 
     // (a.done > b.done) ? a.done : b.done
@@ -121,20 +140,12 @@ const submitForm =
       state = newState;
       renderState(state);
     };
-    // function strike(s){
-    //   var description = document.getElementsByClassName('description');
-    //   state.forEach(function(s,i){
-    //     if(s.done) {
-    //       document.querySelector('ul').
-    //     }
-         
-    //   })
-    // }
+
 
     // you do not need to change this function
     var renderState = function (state) {
       var todoListNode = document.createElement('ul');
-      
+
       state.forEach(function (todo) {
         todoListNode.appendChild(createTodoNode(todo));
 
