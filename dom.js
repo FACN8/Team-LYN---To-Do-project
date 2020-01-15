@@ -7,11 +7,16 @@ const submitForm =
     // This is the dom node where we will keep our todo
     var container = document.querySelector('.content');
     var addTodoForm = document.querySelector('.add-todo');
+    var header = document.querySelector('.header')
+    var removeDone = document.getElementById('removeDone')
 
     var state = [
-      { id: -3, description: 'Hello! plan your day today!' },
-      { id: -2, description: 'To create a new todo use the form bellow' },
-      { id: -1, description: 'third todo' },
+      { id: -3, description: 'Hello! plan your day today!', 
+        done: false},
+      { id: -2, description: 'To create a new todo use the form bellow',
+        done: true },
+      { id: -1, description: 'third todo', 
+        done: true},
     ]; // this is our initial todoList
 
     // This function takes a todo, it returns the DOM node representing that todo
@@ -19,6 +24,7 @@ const submitForm =
       var todoNode = document.createElement('li');
       // you will need to use addEventListener
       todoNode.className+=' item';
+
 
 
 
@@ -36,25 +42,20 @@ const submitForm =
       // add markTodo button
       var markButtonNode = document.createElement('i');
       markButtonNode.className +=' far fa-circle';
-      markButtonNode.addEventListener('click', function (event) {
+      if(todo.done){
+        todoNode.style.textDecoration = "line-through"
+      }
+      markButtonNode.addEventListener('click', function (event) {        
         var newState = todoFunctions.markTodo(state, todo.id);
-        update(newState);
+        update(newState);       
       });
       todoNode.appendChild(markButtonNode);
       // add span holding description
       var spanNode = document.createElement('span');
       var textNode = document.createTextNode(todo.description);
+      spanNode.innerText.strike();
       spanNode.appendChild(textNode);
       todoNode.appendChild(spanNode);
-
-
-      
-
-
-
-      
-
-
 
       // var markButtonNode = document.createElement('button');
       // markButtonNode.textContent='Mark'
@@ -66,7 +67,7 @@ const submitForm =
 
 
       // add classes for css
-    
+      spanNode.className+=' description';
       
       return todoNode;
     };
@@ -82,34 +83,53 @@ const submitForm =
         var newTodo = todoFunctions.makeNewTodo(undefined, description, undefined)
         // hint: todoFunctions.addTodo
         createTodoNode(newTodo);
-        var newState = todoFunctions.addTodo(state, newTodo); // ?? change this!
+        var newState = todoFunctions.addTodo(state, newTodo); 
 
         update(newState);
       });
     }
 
-    // add sort by Id button
-    var sortByIdButtonNode = document.createElement('button');
-    sortByIdButtonNode.textContent = 'Sort by Id'
-    sortByIdButtonNode.addEventListener('click', function (event) {
-      var newState = todoFunctions.sortTodos(state, (a, b) => a.id - b.id);
+    // add sort by done button
+    var sortByDoneButton = document.createElement('i');
+    sortByDoneButton.className += ' fas fa-check-square'
+    sortByDoneButton.addEventListener('click', function (event) {
+      var newState = todoFunctions.sortTodos(state, (a, b) =>  a.done ? 5 : -5)
       update(newState);
     });
-    container.appendChild(sortByIdButtonNode);
+    header.appendChild(sortByDoneButton);
 
+    //Remove done by clicking reset button
+    removeDone.addEventListener('click', function(event){
+      var newState = state.filter(e=> !e.done)
+      update(newState);
+    });
+    
+    //add a line through the sentence
+
+
+    // (a.done > b.done) ? a.done : b.done
     // add sort alphabetically
-    var sortByDescriptionButtonNode = document.createElement('button');
-    sortByDescriptionButtonNode.textContent = 'Sort alphabetically'
+    var sortByDescriptionButtonNode = document.createElement('i');
+    sortByDescriptionButtonNode.className += ' fas fa-sort-alpha-up'
     sortByDescriptionButtonNode.addEventListener('click', function (event) {
       var newState = todoFunctions.sortTodos(state, (a, b) => a.description.toUpperCase().localeCompare(b.description.toUpperCase()));
       update(newState);
     });
-    container.appendChild(sortByDescriptionButtonNode);
+    header.appendChild(sortByDescriptionButtonNode);
     // you should not need to change this function
     var update = function (newState) {
       state = newState;
       renderState(state);
     };
+    // function strike(s){
+    //   var description = document.getElementsByClassName('description');
+    //   state.forEach(function(s,i){
+    //     if(s.done) {
+    //       document.querySelector('ul').
+    //     }
+         
+    //   })
+    // }
 
     // you do not need to change this function
     var renderState = function (state) {
