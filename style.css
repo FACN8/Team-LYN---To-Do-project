@@ -1,10 +1,12 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: beige;
-    font-family: sans-serif;
+    background-color: white;
+    font-family: 'Shadows Into Light Two', cursive, sans-serif;
     background-image: url(images/background.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-size: fixed;
 }
 
 .todo-container {
@@ -15,8 +17,10 @@ body {
 
 .header {
     width: 380px;
-    height: 200px;
+    height: 45px;
     background-size: 100% 200%;
+    background-image: url(images/header.jpg);
+    border-style: solid;
 }
 
 .add-todo {
@@ -27,16 +31,13 @@ body {
 .clear {
     width: 30px;
     height: 30px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    /* position: absolute; */
+    top: 35px;
 }
 
 .clear i.fa-sync {
-    position: absolute;
     font-size: 25px;
-    right: 950px;
-    bottom: 15px;
+    bottom: 25px;
     color: black;
 }
 
@@ -51,6 +52,7 @@ body {
     height: 350px;
     max-height: 300px;
     position: center;
+    /* border-style: solid; */
 }
 
 .content ul {
@@ -69,17 +71,6 @@ body {
     margin: 0;
 }
 
-.add-todo input {
-    position: absolute;
-    left: 50px;
-    height: 35px;
-    width: 310px;
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    padding-left: 10px;
-}
-
 .add-todo {
     position: relative;
     width: 360px;
@@ -87,6 +78,9 @@ body {
     background-color: white;
     padding: 10px;
     border-top: 1px solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-style: solid;
 }
 
 .add-todo i {
@@ -96,11 +90,11 @@ body {
 }
 
 .add-todo i.fa-plus-circle {
-    position: absolute;
-    font-size: 25px;
-    padding-left: 5px;
-    left: 340px;
-    top: 20px;
+    /* position: absolute; */
+    font-size: 35px;
+    padding-left: 2px;
+    left: 330px;
+    top: 12px;
 }
 
 .add-todo i.fa-plus-circle:hover {
@@ -108,10 +102,10 @@ body {
 }
 
 .add-todo input {
-    position: absolute;
-    left: 50px;
+    /* position: absolute; */
+    left: 20px;
     height: 35px;
-    width: 310px;
+    width: 300px;
     background-color: transparent;
     border: none;
     font-size: 20px;
@@ -119,7 +113,7 @@ body {
 }
 
 .item p.text {
-    position: absolute;
+    /* position: absolute; */
     padding: 0;
     margin: 0;
     font-size: 20px;
@@ -130,11 +124,12 @@ body {
 }
 
 .item i.fa-trash {
-    position: absolute;
+    /* position: absolute; */
     font-size: 25px;
     padding-left: 5px;
-    left: 355px;
+    left: 350px;
     top: 55px;
+    color: rgba(0, 0, 0, 0.746);
 }
 
 .item i.fa-trash:hover {
@@ -142,7 +137,7 @@ body {
 }
 
 .item i.fa-circle {
-    position: absolute;
+    /* position: absolute; */
     font-size: 25px;
     padding-left: 5px;
     left: 5px;
@@ -154,7 +149,7 @@ body {
 }
 
 .item p.text {
-    position: absolute;
+    /* position: absolute; */
     font-size: 25px;
     padding-right: 40px;
     left: 80px;
