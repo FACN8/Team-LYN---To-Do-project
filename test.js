@@ -1,5 +1,5 @@
 var todoFunctions = require('./logic');
-
+var dom = require('./dom');
 const requiredKeys = ['id','description','done'];
 
 const makeTea = {
@@ -100,3 +100,16 @@ describe('markTodo tests ', function() {
   });
 
 });
+
+
+/*******   create Todo node       **********/
+
+// describe('create TodoNode tests', function() {
+
+//   it('should return a new Todo node in the dom', function() {
+//     const result = dom.createTodoNode(makeTea);
+//     const actual = toDoArray[0].done;
+//     expect(result).toBe(actual);
+//   });
+
+// });
