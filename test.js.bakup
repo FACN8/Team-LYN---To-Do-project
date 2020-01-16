@@ -1,5 +1,4 @@
 var todoFunctions = require("./logic");
-
 // Constants for testing purposes
 const requiredKeys = ["id", "description", "done"];
 
@@ -7,41 +6,42 @@ const makeTea = {
   id: 2,
   description: "make tea",
   done: false
-}
+};
+
 const toDoArray = [
   {
-    id: 0,
-    description: "Make breakfast",
-    done: false
+  id: 0,
+  description: "Make breakfast",
+  done: false
   },
   {
-    id: 1,
-    description: "Do the dishes",
-    done: true
+  id: 1,
+  description: "Do the dishes",
+  done: true
   },
   {
-    id: 2,
-    description: "make tea",
-    done: false
+  id: 2,
+  description: "make tea",
+  done: false
   }
-];
-const toDoArraySorted = [
+  ];
+  const toDoArraySorted = [
   {
-    id: 0,
-    description: "Make breakfast",
-    done: false
+  id: 0,
+  description: "Make breakfast",
+  done: false
   },
   {
-    id: 1,
-    description: "Do the dishes",
-    done: false
+  id: 1,
+  description: "Do the dishes",
+  done: false
   },
   {
-    id: 2,
-    description: "make tea",
-    done: true
+  id: 2,
+  description: "make tea",
+  done: true
   }
-];
+  ];
 
 describe("Example test", function() {
   it("should do something", function() {
@@ -68,7 +68,7 @@ describe("addTodo tests ", function() {
   it("should have id,description,done keys", function() {
     const result = todoFunctions.addTodo(toDoArray, {
       description: "An object with description only"
-    })[toDoArray.length -1];
+    })[toDoArray.length];
     const resultKeys = Object.keys(result);
     const actual = requiredKeys;
     expect(resultKeys).toEqual(actual);
@@ -117,24 +117,18 @@ describe("markTodo tests ", function() {
   });
 });
 
-
-///***********************       SortTodos test       ********************/
+///* SortTodos test **/
 describe("sortTodos tests ", function() {
   it("should not modify done on the original todos", function() {
-    const actual = toDoArray;
-    const result = todoFunctions.sortTodos(toDoArray, (a, b) =>
-    !a.done ? (!b.done ? 0 : -1) : b.done ? 0 : 1)
-    expect(result).not.toBe(actual);
+  const actual = toDoArray;
+  const result = todoFunctions.sortTodos(toDoArray, (a, b) =>
+  !a.done ? (!b.done ? 0 : -1) : b.done ? 0 : 1)
+  expect(result).not.toBe(actual);
   });
-
- 
-    it("should not modify done on the original todos", function() {
-      const actual = toDoArraySorted;
-      const result = todoFunctions.sortTodos(toDoArraySorted, (a, b) =>
-      !a.done ? (!b.done ? 0 : -1) : b.done ? 0 : 1)
-      expect(result).toEqual(actual);
-    });
-  
-
-  
+  it("should not modify done on the original todos", function() {
+    const actual = toDoArraySorted;
+    const result = todoFunctions.sortTodos(toDoArraySorted, (a, b) =>
+    !a.done ? (!b.done ? 0 : -1) : b.done ? 0 : 1)
+    expect(result).toEqual(actual);
+  });
 })

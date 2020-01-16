@@ -80,14 +80,12 @@ const submitForm = (function() {
   if (addTodoForm) {
     addTodoForm.addEventListener("submit", function(event) {
       event.preventDefault();
-      var description = event.target.description.value; // event.target ....
-      var newTodo = todoFunctions.makeNewTodo(
-        undefined,
-        description,
-        undefined
-      );
-
-      createTodoNode(newTodo);
+      var description = event.target.description.value;
+      if(description==='' || description.length > 300){
+        event.target.description.value="INVALID-Enter Todo between 1 and 300 words"
+        return;
+      }
+      var newTodo ={description:description}
       var newState = todoFunctions.addTodo(state, newTodo);
       addTodoForm.reset();
       update(newState);
