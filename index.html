@@ -3,21 +3,31 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>to do App</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ea21720452.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="todo-container">
+<main role="main">
+    <header>
         <div class="header">
             <i class="fas fa-sync" id="removeDone"></i>
         </div>
-        <br>
-        <div class="content">
+    </header>
+
+    <body>
+        <div class="todo-container">
+
             <br>
+            <div class="content">
+                <br>
+            </div>
         </div>
+    </body>
+    <footer>
         <div>
             <form class="add-todo">
                 <input type="text" name="description" value="" placeholder="Add a to do">
@@ -25,9 +35,8 @@
                 <!-- <i class="fas fa-plus-circle"></i> -->
             </form>
         </div>
-    </div>
-
-</body>
+    </footer>
+</main>
 <script type="text/javascript" src="./logic.js"></script>
 <script type="text/javascript" src="./dom.js"></script>
 
