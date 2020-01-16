@@ -19,9 +19,11 @@ var todoFunctions = {
 
   addTodo: function(todos, newTodo) {
     var newArr = this.cloneArrayOfObjects(todos);
-    return newArr.concat(
-      todoFunctions.makeNewTodo(newTodo.id, newTodo.description, newTodo.done)
-    );
+    if( !Object.keys(newTodo).includes('id'))
+    newTodo.id=this.generateId();
+    if( !Object.keys(newTodo).includes('done'))
+    newTodo.done=false;
+    return newArr.concat(newTodo);
   },
   deleteTodo: function(todos, idToDelete) {
     var newArr = this.cloneArrayOfObjects(todos);
@@ -36,17 +38,7 @@ var todoFunctions = {
       return element;
     });
   },
-  makeNewTodo: function(
-    id = todoFunctions.generateId(),
-    description = "Unknown task",
-    done = false
-  ) {
-    let newTodo = {};
-    newTodo.id = id;
-    newTodo.description = description;
-    newTodo.done = done;
-    return newTodo;
-  },
+
   sortTodos: function(todos, sortFunction) {
     var newArr = this.cloneArrayOfObjects(todos);
 
